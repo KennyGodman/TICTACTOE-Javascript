@@ -32,7 +32,7 @@ function cellClicked(){
      if(options[cellIndex] !=="" || !running){
          return;
      }
-     changePlayer()
+     
      updateCell(this, cellIndex)
      checkWinner();
 }
@@ -61,6 +61,7 @@ function checkWinner(){
             roundWon = true;
             break;
         }
+    }
       if(roundWon){
           statusText.textContent = `${currentPlayer} wins!`;
           running = false;
@@ -73,11 +74,11 @@ function checkWinner(){
           changePlayer();
       }
     }
-}
+
 function restartGame(){
    currentPlayer = "X"
-    options=["","","","","","","","","",];
+   options=["","","","","","","","","",];
    statusText.textContent = `${currentPlayer}'s turn`;
-   cells.forEach(cell => cell.textContent="");
+   cells.forEach(cell => cell.textContent= "");
    running= true;
 }
